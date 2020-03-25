@@ -1,20 +1,21 @@
 import { useState } from "react"
 import { defaultGrid } from "../data/defaultGrid"
-import {getNeighbors} from '../helperFunctions/gridGenerator'
+import {getNeighbors} from '../helperFunctions/utils'
 
 export const useGrid = () =>{
+    
     const [grid,setGrid] = useState(defaultGrid);
     const [generation, setGeneration] = useState(0);
     const [clickable, setClickable] = useState(true);
-    const [speedInput, setSpeedInput] = useState("");
     const [gridSize, setGridSize] = useState(15);
+    
     const stepThroughAutomata = ()=>{
         let validGrid=false;
         const nextGeneration = grid.map((cell,i)=>{
-            let neighbors = getNeighbors(i,gridSize,gridSize);
+            let neighbors = getNeighbors(cell,gridSize,gridSize);
             let livingNeighbors = 0;
             neighbors.forEach(element => {
-                if(grid[element].alive){
+                if(grid[element-1].alive){
                     livingNeighbors++;
                 }
             });
@@ -32,13 +33,14 @@ export const useGrid = () =>{
             return cell;
         })
         if(validGrid){
-            setGeneration(prevState => (prevState+1))
+            setGeneration(generation+1)
         }else{
             setClickable(true);
-            return alert('this grid is not valid ,toggle some live cells or select a default grid')
+            return alert('this grid is not valid ,toggle some live cells')
         }
         setGrid(nextGeneration);
     }
     
+    return [grid,setGrid,generation,setGeneration,clickable,setClickable,gridSize,stepThroughAutomata]
 }
 

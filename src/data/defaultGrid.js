@@ -1,2 +1,2 @@
-import {gridGenerator} from '../helperFunctions/gridGenerator'
+import {gridGenerator} from '../helperFunctions/utils'
 export const defaultGrid = gridGenerator(15)

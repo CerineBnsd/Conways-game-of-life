@@ -1,26 +1,17 @@
+import Grid from './components/Grid.component'
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import {defaultGrid} from './data/defaultGrid'
+
+let gridSize = 15;
+let toggleLife=(e)=>{
+  alert("you clicked")
+  let index = parseInt(e.target.getAttribute('data-id'))-1
+  defaultGrid[index].alive = !defaultGrid[index].alive;
+}
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <Grid grid={defaultGrid} gridSize={gridSize} clickable={true} toggleLife={toggleLife}/>
 }
 
 export default App;

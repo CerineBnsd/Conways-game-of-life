@@ -2,7 +2,8 @@ import React from 'react'
 export default function Controls({generation,setGeneration,step}) {
     return(
         <div className="controls">
-            <button
+            <button 
+                className = "step"
                 onClick={e=>{
                     e.preventDefault();
                     step();

@@ -1,13 +1,69 @@
-body {
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
-
+body {
+  background: rgb(131,162,167);
+  background: linear-gradient(112deg, rgba(131,162,167,1) 0%, rgba(0,255,255,1) 100%);
+  background-repeat: no-repeat;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+}
+main {
+  max-width: 700px;
+  margin: auto;
+  padding: 1rem;
+  text-align: center;
+  height: 610px;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
+}
+.grid {
+  display: grid;
+  grid-gap: 1px;
+  width: 400px;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 1rem 0;
+}
+.container {
+  display: grid;
+  grid-gap: 1px;
+  width: 400px;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 1rem 0;
+}
+.card{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width:  100%;
+  height: 104%;
+  background: #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 10px;
+  margin: auto;
+  overflow: hidden;
+}
+.step{
+  text-decoration: none;
+  background: #3a9696;
+  color: #fff;
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  border: hidden;
+}
+
+.title{
+  color: rgb(59, 59, 59);
+  text-transform: capitalize;
+  font-size: 1.1rem;
+  padding: 14px;
 }

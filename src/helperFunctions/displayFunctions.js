@@ -50,7 +50,7 @@ export const cellDisplay = (alive , gridSize)=>{
         return {
             width : `${cellSize(gridSize)}`,
             height: `${cellSize(gridSize)}`,
-            background : "black"
+            background : ' rgb(59, 59, 59)'
         }
     }
 }

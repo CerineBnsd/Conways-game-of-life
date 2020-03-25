@@ -8,40 +8,28 @@ export default function GridContainer({}){
 
     const [grid,setGrid,generation,setGeneration,clickable,setClickable,gridSize,stepThroughAutomata] = useGrid()
     return (
-        <div className="grid-container">
-            <h1> Generation : {generation}</h1>
-            <div className="grid-and-default-buttons">
-                <Grid
-                    grid={grid}
-                    gridSize={gridSize}
-                    setGrid={setGrid}
-                    clickable={clickable}
+        <main> 
+            <div className="container">
+                <div className="card">
+                <h2 className="title"> Conway's Game Of Life</h2>
+                <h5 className="generation"> Generation : {generation}</h5>
+                <div>
+                    <Grid
+                        grid={grid}
+                        gridSize={gridSize}
+                        setGrid={setGrid}
+                        clickable={clickable}
+                    />
+                    <Controls
+                    generation={generation}
+                    setGeneration={setGeneration}
+                    step={stepThroughAutomata}
                 />
-                 <Controls
-                generation={generation}
-                setGeneration={setGeneration}
-                step={stepThroughAutomata}
-            />
+                </div>
+                </div>
             </div>
-        </div>
-    )
+        </main>
+        )
 }
 
 
-
-/*    const [
-        grid,
-        setGrid,
-        generation,
-        setGeneration,
-        clickable,
-        setClickable,
-        speedInput,
-        setSpeedInput,
-        stepThroughAutomata,
-        toggleLife,
-        gridSize,
-        setGridSize
-    ] = useGrid();
-
-    useInterval(stepThroughAutomata,+speedInput || 500,grid,clickable)*/

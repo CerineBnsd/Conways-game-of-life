@@ -1,10 +1,9 @@
 import { useState } from "react"
-import { defaultGrid } from "../data/defaultGrid"
 import {getNeighbors} from '../helperFunctions/utils'
-
+import {gridGenerator} from '../helperFunctions/utils'
 export const useGrid = () =>{
     
-    const [grid,setGrid] = useState(defaultGrid);
+    const [grid,setGrid] = useState(gridGenerator(15));
     const [generation, setGeneration] = useState(0);
     const [clickable, setClickable] = useState(true);
     const [gridSize, setGridSize] = useState(15);
@@ -40,7 +39,10 @@ export const useGrid = () =>{
         }
         setGrid(nextGeneration);
     }
-    
-    return [grid,setGrid,generation,setGeneration,clickable,setClickable,gridSize,stepThroughAutomata]
+    const clearGrid=()=>{
+        setGrid(gridGenerator(15));
+        setGeneration(0)
+    } 
+    return [grid,setGrid,generation,clickable,setClickable,gridSize,stepThroughAutomata,clearGrid]
 }
 

@@ -1,12 +1,18 @@
-import { useGrid } from "../hooks/useGrid.hook"
+import { useGrid } from "../hooks/useGrid"
 import Grid from "./Grid";
 import Controls from "./Controls";
 import React from "react"
 
-export default function GridContainer({}){
+export default function GridContainer(){
 
-
-    const [grid,setGrid,generation,setGeneration,clickable,setClickable,gridSize,stepThroughAutomata] = useGrid()
+    const [ grid,
+            setGrid,
+            generation,
+            clickable,
+            setClickable,
+            gridSize,
+            stepThroughAutomata,
+            clearGrid] = useGrid()
     return (
         <main> 
             <div className="container">
@@ -21,10 +27,9 @@ export default function GridContainer({}){
                         clickable={clickable}
                     />
                     <Controls
-                    generation={generation}
-                    setGeneration={setGeneration}
                     step={stepThroughAutomata}
-                />
+                    clear={clearGrid}
+/>
                 </div>
                 </div>
             </div>

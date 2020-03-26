@@ -1,7 +1,7 @@
 import React from 'react'
-export default function Controls({generation,setGeneration,step}) {
+export default function Controls({step,clear}) {
     return(
-        <div className="controls">
+        <form className="controls">
             <button 
                 className = "step"
                 onClick={e=>{
@@ -10,6 +10,14 @@ export default function Controls({generation,setGeneration,step}) {
                 }}>
             Step 1 generation
             </button>
-        </div>
+            <button 
+                className = "clear"
+                onClick={e=>{
+                    e.preventDefault();
+                    clear();
+                }}>
+            Clear the grid
+            </button>
+        </form>
     )
 }
